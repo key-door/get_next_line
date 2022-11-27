@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 03:03:37 by kyoda             #+#    #+#             */
-/*   Updated: 2022/10/07 15:47:29 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:15:31 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,6 @@ static char	*ft_free_join(const char *s1, const char *s2, long flag)
 		re = ft_strjoin(s1, s2);
 	ft_void_free((char *)s1);
 	return (re);
-}
-
-static char	*ft_read_fd(int fd, char *memory, char *line)
-{
-	ssize_t	count;
-
-	if (memory == NULL)
-	{
-		memory = malloc(1);
-		if (memory == NULL)
-			return (NULL);
-		*memory = '\0';
-	}
-	while (1)
-	{
-		count = read(fd, line, BUFFER_SIZE);
-		if (count == 0)
-			break ;
-		else if (count < 0)
-			return (ft_free(line));
-		*(line + count) = '\0';
-		memory = ft_free_join(memory, line, 0);
-		if (!memory || ft_strchr(memory, '\n') != NULL)
-			break ;
-	}
-	ft_void_free(line);
-	return (memory);
 }
 
 static char	*ft_get_reline(char *memory)
@@ -90,6 +63,34 @@ static char	*ft_new_next_memory(char *memory)
 	memory = ft_free_join(memory, "", i + 1);
 	return (memory);
 }
+
+static char	*ft_read_fd(int fd, char *memory, char *line)
+{
+	ssize_t	count;
+
+	if (!memory)
+	{
+		memory = malloc(1);
+		if (!memory)
+			return (NULL);
+		*memory = '\0';
+	}
+	while (1)
+	{
+		count = read(fd, line, BUFFER_SIZE);
+		if (count == 0)
+			break ;
+		else if (count < 0)
+			return (ft_free(line));
+		*(line + count) = '\0';
+		memory = ft_free_join(memory, line, 0);
+		if (!memory || ft_strchr(memory, '\n') != NULL)
+			break ;
+	}
+	ft_void_free(line);
+	return (memory);
+}
+
 
 char	*get_next_line(int fd)
 {
