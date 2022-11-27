@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 02:50:36 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/27 23:17:11 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/27 23:29:25 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,3 @@ char	*ft_gnl_free(char *free_ptr)
 	}
 	return (NULL);
 }
-
-// void	ft_void_free(char *free_ptr)
-// {
-// 	if (free_ptr)
-// 	{
-// 		free(free_ptr);
-// 		free_ptr = NULL;
-// 	}
-// }

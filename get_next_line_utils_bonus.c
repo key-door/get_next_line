@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoda <kyoda@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 02:50:36 by kyoda             #+#    #+#             */
-/*   Updated: 2022/10/07 15:47:41 by kyoda            ###   ########.fr       */
+/*   Updated: 2022/11/27 23:29:16 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_free(char *free_ptr)
+char	*ft_gnl_bonus_free(char *free_ptr)
 {
 	if (free_ptr)
 	{
@@ -79,11 +79,3 @@ char	*ft_free(char *free_ptr)
 	return (NULL);
 }
 
-void	ft_void_free(char *free_ptr)
-{
-	if (free_ptr)
-	{
-		free(free_ptr);
-		free_ptr = NULL;
-	}
-}

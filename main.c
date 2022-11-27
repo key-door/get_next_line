@@ -3,33 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ken <ken@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:40:59 by ken               #+#    #+#             */
-/*   Updated: 2022/10/27 15:47:24 by ken              ###   ########.fr       */
+/*   Updated: 2022/11/27 23:31:33 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
-#include<fcntl.h>
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 
-int main()
+int	main(void)
 {
-    char *tmp;
-    char *buf;
-    int fd;
+	char	*buf;
+	int		fd;
 
-    fd = open("test.txt", O_RDONLY);
-
-    while(1)
-    {
-        buf = get_next_line(fd);
-        printf("%s",buf);
-        if(!buf)
-            break;
-        free(buf);           
-    }
-    return 0;
+	fd = open("text.txt", O_RDONLY);
+	while (1)
+	{
+		buf = get_next_line(fd);
+		printf("%s", buf);
+		if (!buf)
+			break ;
+		free(buf);
+	}
+	close(fd);
+	return (0);
 }

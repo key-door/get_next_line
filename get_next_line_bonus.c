@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 03:03:37 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/27 23:15:31 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/27 23:40:44 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_free_join(const char *s1, const char *s2, long flag)
 		re = ft_strjoin(s1 + flag, s2);
 	else
 		re = ft_strjoin(s1, s2);
-	ft_void_free((char *)s1);
+	ft_gnl_bonus_free((char *)s1);
 	return (re);
 }
 
@@ -55,10 +55,10 @@ static char	*ft_new_next_memory(char *memory)
 	char	*tmp;
 
 	if (!memory[0])
-		return (ft_free(memory));
+		return (ft_gnl_bonus_free(memory));
 	tmp = ft_strchr(memory, '\n');
 	if (tmp == NULL)
-		return (ft_free(memory));
+		return (ft_gnl_bonus_free(memory));
 	i = tmp - memory;
 	memory = ft_free_join(memory, "", i + 1);
 	return (memory);
@@ -81,18 +81,17 @@ static char	*ft_read_fd(int fd, char *memory, char *line)
 		if (count == 0)
 			break ;
 		else if (count < 0)
-			return (ft_free(line));
+			return (ft_gnl_bonus_free(line));
 		*(line + count) = '\0';
 		memory = ft_free_join(memory, line, 0);
 		if (!memory || ft_strchr(memory, '\n') != NULL)
 			break ;
 	}
-	ft_void_free(line);
+	ft_gnl_bonus_free(line);
 	return (memory);
 }
 
-
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
 	static char	*memory[MAX_FD];
 	char		*re;

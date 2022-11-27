@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 03:00:10 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/27 23:20:11 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/27 23:30:36 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 char	*ft_gnl_free(char *free_ptr);
-// void	ft_void_free(char *free_ptr);
 
 #endif
