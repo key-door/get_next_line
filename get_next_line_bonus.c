@@ -6,7 +6,7 @@
 /*   By: keys <keys@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 03:03:37 by kyoda             #+#    #+#             */
-/*   Updated: 2022/11/27 23:40:44 by keys             ###   ########.fr       */
+/*   Updated: 2022/11/27 23:45:42 by keys             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	*ft_read_fd(int fd, char *memory, char *line)
 	return (memory);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*memory[MAX_FD];
 	char		*re;
